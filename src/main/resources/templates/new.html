@@ -5,6 +5,33 @@
     <title>new</title>
 </head>
 <body>
+<nav th:insert="~{menutemplate::navbar}"/>
 
+    <div>
+        <h1>New product to sell</h1>
+        <form method="post" th:action="@{~/new}" th:object="${ProductToAdd}">
+            Naam: <input type="text" th:field="*{name}">
+            <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
+            <br>
+            Categorie: <input type="text" th:field="*{category}">
+            <span th:if="${#fields.hasErrors('category')}" th:errors="*{category}"></span>
+            <br>
+            Omschrijving: <input type="text" th:field="*{description}">
+            <br>
+            Username: <input type="text" th:field="*{username}">
+            <span th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></span>
+            <br>
+            Email: <input type="text" th:field="*{email}">
+            <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span>
+            <br>
+            Vraagprijs: <input type="text" th:field="*{price}">
+            <span th:if="${#fields.hasErrors('price')}" th:errors="*{price}"></span>
+            <br>
+            <button th:field="submit">Submit</button>
+            <br>
+
+        </form>
+
+    </div>
 </body>
 </html>

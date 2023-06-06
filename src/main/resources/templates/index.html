@@ -1,9 +1,19 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:insert="~{menutemplate::header('index')}" >
+<head >
     <meta charset="UTF-8">
     <title>index</title>
-    <link rel="stylesheet" href="style.css">
+
+    <style>
+        th, td {
+            border: 2px solid black;
+
+        }
+        table {
+            border: 2px solid black;
+            border-collapse: collapse;
+            width: 30%;
+        }</style>
 </head>
 <body>
 
@@ -18,15 +28,17 @@
         </thead>
         <tbody>
         <tr th:each="products : ${Products}">
-            <td><span th:text="${Products.name}"></span> </td>
-            <td><span th:text="${Products.price}"></span></td>
-            <td> <button th:href="@{/details/{id}(id= ${Products.id})}"> Details</button></td>
+            <td><span th:text="${products.name}"></span> </td>
+            <td><span th:text="${products.price}"></span></td>
+            <td> <a class="btn" th:href="@{/details/{id}(id= ${products.id})}"> Details</a></td>
 
         </tr>
         </tbody>
 
 
     </table>
+
+    <a th:href="@{/new}"><button>New Product</button></a>
 
 </div>
 

@@ -6,8 +6,10 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.validation.constraints.DecimalMin;
 import jakarta.validation.constraints.Email;
-import org.antlr.v4.runtime.misc.NotNull;
-import org.springframework.format.annotation.NumberFormat;
+
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+
 
 @Entity
 public class Products {
@@ -18,32 +20,24 @@ public class Products {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
-    @NotNull
+    @NotBlank
     private String name;
 
+    @NotBlank
     private String category;
 
     private String description;
-    @NotNull
+    @NotBlank
     private String username;
 
-    @NotNull
+    @NotBlank
     @Email
     private String email;
 
-    @NotNull
     @DecimalMin("0.50")
     private double price;
 
-    public Products(int id, String name, String category, String description, String username, String email, double price) {
-        this.id = id;
-        this.name = name;
-        this.category = category;
-        this.description = description;
-        this.username = username;
-        this.email = email;
-        this.price = price;
-    }
+
 
     public Products() {
 

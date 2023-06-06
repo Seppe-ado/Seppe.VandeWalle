@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 
-<nav th: fragment="navbar">
+<nav th:fragment="navbar">
     <ul>
-        <li> <a th:href="@{~/index}" th:text="#{navbar.index}"></a></li>
-        <li> <a th:href="@{~/new}" th:text="#{navbar.new}"></a></li>
-        <li> <a th:href="@{~/about}" th:text="#{navbar.about}"></a></li>
+        <li> <a th:href="@{~/index}">Derdehands.be</a></li>
+        <li> <a th:href="@{~/new}">New Product</a></li>
+        <li> <a th:href="@{~/about}">About</a></li>
     </ul>
 </nav>
 <head th:fragment="header(name)">
