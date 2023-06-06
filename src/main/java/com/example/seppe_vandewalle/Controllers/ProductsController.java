@@ -5,8 +5,9 @@ import com.example.seppe_vandewalle.Model.Entities.Products;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.Optional;
 
 @Controller
 public class ProductsController {
@@ -37,11 +38,18 @@ public class ProductsController {
     public String NewPage(){
         return "new";
     }
-    @GetMapping("/details")
-    public String DetailsPage(){
-        return "details";
+    @RequestMapping(value = "/details/{id}", method = RequestMethod.GET)
+    public String DetailsPage(ModelMap map, @PathVariable(value = "id") int id){
+        Optional<Products> optional1 =mProductsDAO.findById(id);
+        if (optional1.isPresent()){
+            map.addAttribute("Products",optional1.get());
+            return "details";
+        }
+        return "redirect:/index";
     }
 
     @GetMapping("/hello")
     public String hello(){return "hello world";}
+
+
 }

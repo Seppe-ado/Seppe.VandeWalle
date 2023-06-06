@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>details</title>
+</head>
+<body>
+      <div>
+        <table th:object="${Products}">
+
+          <tr>
+            <td>Naam</td>
+            <td th:text="*{name}"></td>
+          </tr>
+          <tr>
+            <td>Categorie</td>
+            <td th:text="*{category}"></td>
+          </tr>
+          <tr>
+            <td>Prijs</td>
+            <td th:text="*{price}"></td>
+          </tr>
+          <tr>
+            <td>Omschrijving</td>
+            <td th:text="*{description}"></td>
+          </tr>
+          <tr>
+            <td>Naam verkooper</td>
+            <td th:text="*{username}"></td>
+          </tr>
+          <tr>
+            <td>Email verkooper</td>
+            <td th:text="*{email}"></td>
+          </tr>
+
+
+        </table>
+
+      </div>
+
+</body>
+</html>
